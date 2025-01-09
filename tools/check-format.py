@@ -7,6 +7,9 @@ import os
 import re
 from functools import cache
 from common import setup_common as setup
+from pathlib import Path
+
+ROOT = Path(__file__).parent.parent
 
 # ------
 # CHECKS
@@ -330,6 +333,25 @@ def header_no_offset_comments(c, path):
 
 # Source files
 
+def source_include_what_you_use(c, path):
+    arguments = [
+        "-I"+str(ROOT/"src"),
+        "-I"+str(ROOT/"lib"),
+        "-I"+str(ROOT/"lib/al"),
+        "-I"+str(ROOT/"lib/aarch64"),
+        "-I"+str(ROOT/"lib/NintendoSDK/include"),
+        "-I"+str(ROOT/"lib/sead/include"),
+        "-I"+str(ROOT/"lib/agl/include"),
+        "-I"+str(ROOT/"lib/eui/include"),
+        "-I"+str(ROOT/"toolchain/clang-3.9.1/include/c++/v1/"),
+        "--sysroot="+str(ROOT/"toolchain/musl"),
+        "-I"+str(ROOT/"toolchain/musl/include"),
+        "-DNNSDK"
+    ]
+    iwyu = subprocess.run(["include-what-you-use", "-Xiwyu", "--error=2", path] + arguments, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    if iwyu.returncode != 0:
+        FAIL("include-what-you-use failed!", iwyu.stderr, path)
+
 # -----
 # UTILS
 # -----
@@ -343,6 +365,7 @@ def check_source(c, path):
     common_const_type(c, path)
     common_this_prefix(c, path)
     common_sead_math_template(c, path)
+    source_include_what_you_use(c, path)
 
 def check_header(c, path):
     common_newline_eof(c, path)

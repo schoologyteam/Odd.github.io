@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.13)
 project(odyssey CXX)
 
+find_program(iwyu_path NAMES include-what-you-use iwyu REQUIRED)
+#set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU_PATH} CXXFLAGS="-Xiwyu --error_always")
+#set_property(TARGET odyssey PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${IWYU_PATH} CXXFLAGS="-Xiwyu --error_always")
+
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Use response files when linking objects because of the large number of source files
 set(CMAKE_CXX_USE_RESPONSE_FILE_FOR_OBJECTS ON)
@@ -65,3 +70,5 @@ target_link_libraries(odyssey PUBLIC agl)
 
 add_subdirectory(lib/eui)
 target_link_libraries(odyssey PUBLIC eui)
+
+set_property(TARGET odyssey PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})

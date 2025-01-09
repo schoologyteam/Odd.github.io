@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems.url = "github:nix-systems/default";
     rust-overlay.url = "github:oxalica/rust-overlay";
@@ -32,10 +32,11 @@
             python-pkgs.colorama
             python-pkgs.cxxfilt
             python-pkgs.pyelftools
-            python-pkgs.ansiwrap
+            # python-pkgs.ansiwrap  <- currently marked as "broken" by nixpkgs
             python-pkgs.watchdog
             python-pkgs.python-Levenshtein
             python-pkgs.toml
+            python-pkgs.libclang
           ]))
           openssl
           libclang

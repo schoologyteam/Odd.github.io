@@ -4,6 +4,8 @@
 #include "Library/Scene/SceneObjHolder.h"
 #include "Library/Scene/SceneUtil.h"
 
+#include "Library/Audio/AudioDirector.h"
+
 GameDataHolderAccessor::GameDataHolderAccessor(const al::IUseSceneObjHolder* holder) {
     mData = reinterpret_cast<GameDataHolder*>(al::getSceneObj(holder, 18));
 }

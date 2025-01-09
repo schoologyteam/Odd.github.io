@@ -1,0 +1,22 @@
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/src/System/GameDataHolderAccessor.cpp:4:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/lib/al/Library/Scene/SceneObjHolder.h:3:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/lib/sead/include/basis/seadTypes.h:7:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/toolchain/clang-3.9.1/include/c++/v1/cstddef:36:
+/persist/home/monsterdruide1/OdysseyDecomp/toolchain/clang-3.9.1/include/c++/v1/__config:423:5: error: function-like macro '__GLIBC_PREREQ' is not defined
+  423 | #if __GLIBC_PREREQ(2, 15)
+      |     ^
+/persist/home/monsterdruide1/OdysseyDecomp/toolchain/clang-3.9.1/include/c++/v1/__config:426:5: error: function-like macro '__GLIBC_PREREQ' is not defined
+  426 | #if __GLIBC_PREREQ(2, 17)
+      |     ^
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/src/System/GameDataHolderAccessor.cpp:7:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/lib/al/Library/Audio/AudioDirector.h:3:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/lib/sead/include/container/seadPtrArray.h:4:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/toolchain/clang-3.9.1/include/c++/v1/algorithm:632:
+In file included from /persist/home/monsterdruide1/OdysseyDecomp/toolchain/clang-3.9.1/include/c++/v1/cstring:61:
+/persist/home/monsterdruide1/OdysseyDecomp/toolchain/musl/include/string.h:11:9: warning: 'NULL' macro redefined [-Wmacro-redefined]
+   11 | #define NULL 0L
+      |         ^
+/nix/store/03bq5hc45d5wkw8pajmz4vgd5s0ivyq8-clang-wrapper-18.1.8/resource-root/include/__stddef_null.h:21:9: note: previous definition is here
+   21 | #define NULL __null
+      |         ^
+
